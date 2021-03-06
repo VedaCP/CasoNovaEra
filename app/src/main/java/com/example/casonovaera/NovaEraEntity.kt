@@ -9,4 +9,6 @@ data class NovaEraEntity(@SerializedName("id")
                          @PrimaryKey val id: Int,
                          @SerializedName("name") val name: String,
                          @SerializedName("price") val price: Int,
-                         @SerializedName ("image") val image: String)
+                         @SerializedName ("image") val image: String) {
+
+}

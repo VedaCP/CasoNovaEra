@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 
 class NovaEraViewModel (application: Application): AndroidViewModel(application) {
 
-    private val repository: NovaEraRepository = TODO()
+    private val repository: NovaEraRepository
     val novaEraDataFromDB: LiveData<List<NovaEraEntity>>
 
     init {

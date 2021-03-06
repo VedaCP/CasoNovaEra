@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class NovaEraRetrofitClient {
     companion object{
         private const val URL_BASE =
-            "https://my-json-server.typicode.com/Himuravidal/FakeAPIdata/products/"
+            "https://my-json-server.typicode.com/Himuravidal/FakeAPIdata/"
         fun retrofitInstance(): NovaEraAPI{
             val retrofitClient = Retrofit.Builder()
                 .baseUrl(URL_BASE)
