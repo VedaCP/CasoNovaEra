@@ -22,6 +22,8 @@ class NovaEraViewModel (application: Application): AndroidViewModel(application)
     fun returnDetail(id: Int): LiveData<List<NovaEraDetailEntity>> =
         repository.getAllNovaEraDaoDB(id)
 
-    fun getDetail(id:Int): LiveData<List<NovaEraDetailEntity>> =
-        repository.getAllNovaEraDaoDB(id)
+    fun getDetail(id:Int) = viewModelScope.launch {
+        repository.getNovaEraDetail(id)
+    }
+
 }

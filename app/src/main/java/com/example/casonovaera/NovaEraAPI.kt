@@ -9,7 +9,7 @@ interface NovaEraAPI {
     @GET("products")
     suspend fun fetchNovaEraList(): Response<List<NovaEraEntity>>
 
-    @GET("detail/{id}")
+    @GET("details/{id}")
     suspend fun fetchNovaEraDetailEntity(@Path("id") id: Int)
             : Response<NovaEraDetail>
 }

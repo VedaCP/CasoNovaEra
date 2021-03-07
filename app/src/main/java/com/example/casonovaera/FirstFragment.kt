@@ -44,6 +44,7 @@ class FirstFragment : Fragment() {
             it?.let {
                 val bundle = Bundle()
                 bundle.putInt("Lista", it.id)
+               // Log.d("CLAVE", "$it.id")
                 viewModelNovaEra.getDetail(it.id)
                 findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
             }

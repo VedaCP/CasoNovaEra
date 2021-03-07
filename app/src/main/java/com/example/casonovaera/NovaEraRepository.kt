@@ -8,14 +8,6 @@ class NovaEraRepository(private val dao: NovaEraDao) {
 
     val listNovaEra: LiveData<List<NovaEraEntity>> = dao.getAllNovaEraDaoDB()
 
-    fun converter(converter: List<NovaEraList>): List<NovaEraEntity> {
-        val converterNEEntity: MutableList<NovaEraEntity> = mutableListOf()
-        converter.map {
-            converterNEEntity.add(NovaEraEntity(id = it.id, name = it.name, price = it.price,
-                image = it.image))
-        }
-        return converterNEEntity
-    }
     fun detailNovaEra(id: Int, name: String, price: Int, image: String, description: String,
                       lastPrice: Int, credit: Boolean): List<NovaEraDetailEntity>{
         val listNovaEraDetail: MutableList<NovaEraDetailEntity> = mutableListOf()
@@ -33,7 +25,7 @@ class NovaEraRepository(private val dao: NovaEraDao) {
                 true -> response.body()?.let {
                     dao.insertAllNovaEraDao(it)
                 }
-                false -> Log.d("ERROR", "${response.code()} : ${response.errorBody()}")
+                false -> Log.d("ERROR 1", "${response.code()} : ${response.errorBody()}")
             }
         }
         catch (t:Throwable){
@@ -48,7 +40,7 @@ class NovaEraRepository(private val dao: NovaEraDao) {
                    dao.insertNovaEraDetail(detailNovaEra(id, it.name, it.price, it.image,
                        it.description, it.lastPrice, it.credit))
                 }
-                false -> Log.d("ERROR", "${response.code()} : ${response.errorBody()}")
+                false -> Log.d("ERROR 2", "${response.code()} : ${response.errorBody()}")
             }
         } catch (t: Throwable) {
             Log.e("ERROR COROUTINE", t.message.toString())

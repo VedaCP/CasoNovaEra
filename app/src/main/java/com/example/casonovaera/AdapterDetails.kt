@@ -26,6 +26,7 @@ class AdapterDetails: RecyclerView.Adapter<AdapterDetails.DetailsVH>() {
 
     override fun onBindViewHolder(holder: AdapterDetails.DetailsVH, position: Int) {
         val mDetails = listDetailNovaEra[position]
+        holder.bind(mDetails)//agregué ésta línea
     }
 
     override fun getItemCount(): Int = listDetailNovaEra.size
@@ -43,6 +44,7 @@ class AdapterDetails: RecyclerView.Adapter<AdapterDetails.DetailsVH>() {
                     if (novaEraDetailEntity.credit){
                         binding.tvCredit.text = "ACEPTA CRÉDITO"
                     }
+                    itemView.setOnClickListener(this)//agregué ésta línea
 
                 }
 
